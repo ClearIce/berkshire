@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Berkshire", "Berkshire\Berkshire.csproj", "{680C7E69-2C74-48F4-B177-F220EC263A1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{F6A21BA9-FCA9-4E50-94D4-9113105435F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{680C7E69-2C74-48F4-B177-F220EC263A1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{680C7E69-2C74-48F4-B177-F220EC263A1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{680C7E69-2C74-48F4-B177-F220EC263A1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{680C7E69-2C74-48F4-B177-F220EC263A1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6A21BA9-FCA9-4E50-94D4-9113105435F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A21BA9-FCA9-4E50-94D4-9113105435F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A21BA9-FCA9-4E50-94D4-9113105435F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A21BA9-FCA9-4E50-94D4-9113105435F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F85710EC-0FA3-4597-844D-DAF245A81C5D}
+	EndGlobalSection
+EndGlobal
