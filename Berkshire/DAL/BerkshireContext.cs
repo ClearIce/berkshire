@@ -32,9 +32,10 @@ namespace Berkshire.DAL
 
             // Seed data to generate migrations data
             modelBuilder.Entity<BerkshireReasoning>().HasData(new BerkshireReasoning[] { 
-                new BerkshireReasoning() { Id = 1, Reason = "test 1", Created = DateTime.UtcNow, Updated = DateTime.UtcNow },
-                new BerkshireReasoning() { Id = 2, Reason = "test 2", Created = DateTime.UtcNow, Updated = DateTime.UtcNow },
-                new BerkshireReasoning() { Id = 3, Reason = "test 3", Created = DateTime.UtcNow, Updated = DateTime.UtcNow }
+                new BerkshireReasoning() { Id = 1, Reason = Reasons.First, Created = DateTime.UtcNow, Updated = DateTime.UtcNow },
+                new BerkshireReasoning() { Id = 2, Reason = Reasons.Second, Created = DateTime.UtcNow, Updated = DateTime.UtcNow },
+                new BerkshireReasoning() { Id = 3, Reason = Reasons.Third, Created = DateTime.UtcNow, Updated = DateTime.UtcNow },
+                new BerkshireReasoning() { Id = 4, Reason = "Invalid Reason", Created = DateTime.UtcNow, Updated = DateTime.UtcNow }
             });
 
             base.OnModelCreating(modelBuilder);
