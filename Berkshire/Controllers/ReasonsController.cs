@@ -1,12 +1,11 @@
 ﻿using Berkshire.DAL;
 using Berkshire.DAL.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Berkshire.Controllers
 {
@@ -21,44 +20,76 @@ namespace Berkshire.Controllers
             Context = context;
         }
 
-        // GET: api/<ValuesController>
         [HttpGet]
-        public async Task<IEnumerable<string>> Get()
+        public async Task<IEnumerable<BerkshireReasoning>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return await Context.BerkshireReasons.ToListAsync();
         }
 
-        // GET api/<ValuesController>/5
         [HttpGet("{id}")]
-        public async Task<string> Get(int id)
+        public async Task<BerkshireReasoning> Get(int id)
         {
-            return "value";
+            if (id <= 0)
+            {
+                Response.StatusCode = StatusCodes.Status404NotFound;
+                return null;
+            }
+            
+            return await Context.BerkshireReasons.FindAsync(id);
         }
 
-        // POST api/<ValuesController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] string value)
         {
+            if (string.IsNullOrEmpty(value))
+                return BadRequest();
+
             var model = new BerkshireReasoning() { 
                 Reason = value,
                 Created = DateTime.UtcNow,
                 Updated = DateTime.UtcNow
             };
 
+            await Context.BerkshireReasons.AddAsync(model);
+            await Context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(ControllerContext), model);
         }
 
-        // PUT api/<ValuesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<BerkshireReasoning> Put(int id, [FromBody] string reason)
         {
+            if (string.IsNullOrEmpty(reason) || id <= 0)
+            {
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+                return null;
+            }
+
+            var existing = await Context.BerkshireReasons.FindAsync(id);
+            if (existing != null)
+            {
+                existing.Reason = reason;
+                existing.Updated = DateTime.UtcNow;
+                await Context.SaveChangesAsync();
+            }
+            else
+            {
+                Response.StatusCode = StatusCodes.Status404NotFound;
+                return null;
+            }
+
+            return existing;
         }
 
-        // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            Context.Remove(await Context.BerkshireReasons.FindAsync(id));
+            await Context.SaveChangesAsync();
+            return Ok();
         }
+
+        // Exception filter:
+        // Problem(title: "An error occurred", detail: ex.Message, statusCode: StatusCodes.Status500InternalServerError);
     }
 }
