@@ -37,16 +37,16 @@ export class Home extends Component {
     );
   }
 
-  async static getReasons() {
-    const response = await fetch ('api/reasons');
-    const data = response.body.json();
+  async getReasons() {
+    const response = await fetch('api/reasons');
+    const data = await response.json();
     this.setState({ reasons: data, loading: false });
   }
 
   render () {
-    let contents = this.state.loading
+    let reasons = this.state.loading
       ? <p><em>Loading...</em></p>
-      : Home.renderReasons(this.state.forecasts);
+      : Home.renderReasons(this.state.reasons);
 
     return (
       <div>
@@ -66,15 +66,11 @@ export class Home extends Component {
         <p>The <code>ClientApp</code> subdirectory is a standard React application based on the <code>create-react-app</code> template. If you open a command prompt in that directory, you can run <code>npm</code> commands such as <code>npm test</code> or <code>npm install</code>.</p>
 
         <div>
-          <h1 id="tabelLabel" >Weather forecast</h1>
+          <h1 id="tabelLabel">Reasons</h1>
           <p>This component demonstrates fetching data from the server.</p>
-          {contents}
-      </div>
-      </div>
-
-      
+          {reasons}
+        </div>
+      </div>      
     );
   }
-
-  
 }

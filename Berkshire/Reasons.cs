@@ -7,8 +7,8 @@ namespace Berkshire
 {
     public static class Reasons
     {
-        public const string First = @"";
-        public const string Second = @"";
-        public const string Third = @"";
+        public const string First = @"First reason";
+        public const string Second = @"Second reason";
+        public const string Third = @"Third reason";
     }
 }
