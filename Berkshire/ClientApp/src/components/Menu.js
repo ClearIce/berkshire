@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "../assets/menu.css";
 
 function Menu() {
+  // https://reactrouter.com/web/api/Hooks/uselocation
   const location = useLocation();
   const [menuOpen, toggleMenu] = useState(false);
 
