@@ -1,18 +1,21 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React, { lazy, Suspense } from "react";
+import ReactDOM from "react-dom";
 
-const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
-const rootElement = document.getElementById('root');
+const App = lazy(() => import("./App"));
+
+const rootElement = document.getElementById("root");
+
+function AppLoader() {
+  return (
+    <Suspense fallback={<div className="loading">Loading...</div>}>
+      <App />
+    </Suspense>
+  );
+}
 
 ReactDOM.render(
-  <BrowserRouter basename={baseUrl}>
-    <App />
-  </BrowserRouter>,
-  rootElement);
-
-registerServiceWorker();
-
+  <React.StrictMode>
+    <AppLoader />
+  </React.StrictMode>,
+  rootElement
+);

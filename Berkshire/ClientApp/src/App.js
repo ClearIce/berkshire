@@ -1,18 +1,22 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import './custom.css'
+import Menu from "./components/Menu";
+import Home from "./components/Home";
+import About from "./components/About";
 
-export default class App extends Component {
-  static displayName = App.name;
+import "./assets/styles.css";
 
-  render () {
-    return (
-      <Layout>
-        <Route exact path='/' component={Home} />
-      </Layout>
-    );
-  }
+function App() {
+  return (
+    <Router>
+      <Menu />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/about" component={About} />
+      </Switch>
+    </Router>
+  );
 }
+
+export default App;

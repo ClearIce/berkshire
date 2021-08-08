@@ -21,13 +21,12 @@ namespace Berkshire.DAL
             DbPath = $"{path}{System.IO.Path.DirectorySeparatorChar}berkshire.db";
         }
 
-        // The following configures EF to create a Sqlite database file in the
-        // special "local" folder for your platform.
+        // The following configures EF to use Sqlite database
         protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source={DbPath}");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Auto-increment primary key
+            // Auto-incrementing primary key
             modelBuilder.Entity<BerkshireReasoning>().Property(m => m.Id).ValueGeneratedOnAdd();
 
             // Seed data to generate migrations data
