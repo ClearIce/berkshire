@@ -14,14 +14,15 @@ function About() {
         </div>
         <div className="about-text__body">
           I'm a self-taught full stack web developer
-          <br />
-          <br />I primarily use ASP.NET Core 5+
         </div>
+        <div className="about-text__body">
+          I primarily use ASP.NET Core 5+
+        </div>        
         <div className="about-social">          
           <div className="about-social__links">
             <a
               className="about-social__link"
-              href="https://github.com/patheticGeek"
+              href="https://github.com/clearice"
               rel="noopener noreferrer"
               target="_blank">
               github

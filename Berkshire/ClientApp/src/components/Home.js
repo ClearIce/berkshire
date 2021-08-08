@@ -1,42 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Particle from "react-particles-js";
 import particlesConfig from "../assets/particlesConfig.json";
+import Reason from "./Reason";
 
 function App() {
-  let reasonTable = <></>;
   const [reasons, setReasons] = useState("");
 
   useEffect(() => {
-    async function getReasons() {
-      const response = await fetch('api/reasons');
-      setReasons(await response.json());
-    }
-    getReasons();
-  });
-  
-  if (reasons) {
-    reasonTable = 
-    <table className='table table-striped' aria-labelledby="tabelLabel">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Reason</th>
-          <th>Created</th>
-          <th>Updated</th>
-        </tr>
-      </thead>
-      <tbody>
-        {reasons.map(reason =>
-          <tr key={reason.id}>
-            <td>{reason.id}</td>
-            <td>{reason.reason}</td>
-            <td>{reason.created}</td>
-            <td>{reason.updated}</td>
-          </tr>
-        )}
-      </tbody>
-    </table>
-  }
+    if (!reasons) {
+      fetch('api/reasons').then(result => {
+        result.json().then(data => {
+          setReasons(data);
+        })
+      });
+    }      
+  });  
   
   return (
     <>
@@ -49,7 +27,7 @@ function App() {
             <br/>
             Site credit: <a href="https://codesandbox.io/s/c0y43?file=/src/App.js:0-562">https://codesandbox.io/s/c0y43?file=/src/App.js:0-562</a>
           </h2>
-          {reasonTable}
+          {reasons ? reasons.map(reason => <Reason reason={reason} key={reason.id}></Reason>) : <></>}
         </div>
       </div>
     </>

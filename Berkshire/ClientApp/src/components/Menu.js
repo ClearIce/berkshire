@@ -27,12 +27,7 @@ function Menu() {
             <div className="menu-item__title">Home</div>
             <div className="menu-item__background" />
             <div className="menu-item__subtitle"></div>
-          </Link>
-          <Link to="/work" className="menu-item">
-            <div className="menu-item__title">Work</div>
-            <div className="menu-item__background" />
-            <div className="menu-item__subtitle"></div>
-          </Link>
+          </Link>          
           <Link to="/about" className="menu-item">
             <div className="menu-item__title">About</div>
             <div className="menu-item__background" />
