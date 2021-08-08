@@ -7,8 +7,8 @@ namespace Berkshire
 {
     public static class Reasons
     {
-        public const string First = @"First reason";
-        public const string Second = @"Second reason";
-        public const string Third = @"Third reason";
+        public const string First = @"Work with colleagues that have integrity, intelligence, and energy";
+        public const string Second = @"Continue to be curious about technology and deliver valuable solutions";
+        public const string Third = @"Contribute to the financial strength and security of BHHC's customers, partners, and employees";
     }
 }

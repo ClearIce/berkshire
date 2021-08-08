@@ -16,7 +16,6 @@ body {
   justify-content: center;
   height: 100%;
 }
-
 .App a {
   color: #828ed4;
   transition: 0.2s all ease-in-out;
@@ -24,7 +23,6 @@ body {
 .App a:hover {
   opacity: 0.75;
 }
-
 .App {
   z-index: 10;
   text-align: center;
@@ -35,6 +33,16 @@ body {
 .App-text {
   opacity: 1;
   transition: 0.1s all ease-in-out;
+}
+.App-text__reasons {
+  min-height: 128px;
+  transition: 0.3s all ease-in-out;
+  animation: app-enter-anim 0.3s ease-out;
+}
+.App-text__reasons ul {
+  list-style: none;
+  font-size: 1.2rem;
+  min-height: 128px;
 }
 .App-particles__container {
   overflow: hidden;
@@ -51,7 +59,6 @@ body {
   height: 100%;
   width: 100%;
 }
-
 .App-text__title {
   margin: 0px;
   font-weight: 400;
@@ -64,6 +71,7 @@ body {
   margin-top: 12px;
   font-weight: 400;
   font-size: 1.2rem;
+  transition: 0.1s all ease-in-out;
 }
 
 @keyframes app-enter-anim {

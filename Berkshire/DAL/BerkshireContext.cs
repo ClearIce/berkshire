@@ -34,7 +34,6 @@ namespace Berkshire.DAL
                 new BerkshireReasoning() { Id = 1, Reason = Reasons.First, Created = DateTime.UtcNow, Updated = DateTime.UtcNow },
                 new BerkshireReasoning() { Id = 2, Reason = Reasons.Second, Created = DateTime.UtcNow, Updated = DateTime.UtcNow },
                 new BerkshireReasoning() { Id = 3, Reason = Reasons.Third, Created = DateTime.UtcNow, Updated = DateTime.UtcNow },
-                new BerkshireReasoning() { Id = 4, Reason = "Invalid Reason", Created = DateTime.UtcNow, Updated = DateTime.UtcNow }
             });
 
             base.OnModelCreating(modelBuilder);

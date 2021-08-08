@@ -166,6 +166,9 @@
 .menu-list-container.menu-open ~ .App .App-text {
   opacity: 0;
 }
+.menu-list-container.menu-open ~ .App .App-text__reasons {
+  opacity: 0;
+}
 
 @keyframes menu-icon-circle-anim {
   0% {

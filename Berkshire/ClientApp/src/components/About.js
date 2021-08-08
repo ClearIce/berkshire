@@ -16,8 +16,26 @@ function About() {
           I'm a self-taught full stack web developer
         </div>
         <div className="about-text__body">
-          I primarily use ASP.NET Core 5+
-        </div>        
+          My main skills are:
+          <ul>
+            <li>C#/.NET</li>
+            <li>ASP.NET Core 5+</li>
+            <li>React</li>
+            <li>MSSQL</li>
+            <li>Azure Cloud/DevOps</li>
+            <li>Jira/Confluence</li>
+            <li>Git</li>          
+            <li>Sitecore 9.0/9.1/9.3</li>
+            <li>Sitecore 9.1 with SXA</li>
+          </ul>
+        </div>
+        <div className="about-text__body">
+          I have these certifications:
+          <ul>
+            <li>OSCP</li>
+            <li>Sitecore 9.0</li>
+          </ul>
+        </div>
         <div className="about-social">          
           <div className="about-social__links">
             <a
